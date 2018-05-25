@@ -15,6 +15,7 @@
 		7B0F15DE20B7B39D0056EDDC /* JJSegmentViewHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F15DD20B7B39D0056EDDC /* JJSegmentViewHead.swift */; };
 		7B0F15E020B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F15DF20B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift */; };
 		7B0F15E420B7BFB10056EDDC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0F15E320B7BFB10056EDDC /* Default-568h@2x.png */; };
+		7B8FCAE820B7F60A00732A1E /* JJBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FCAE720B7F60A00732A1E /* JJBaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		7B0F15DD20B7B39D0056EDDC /* JJSegmentViewHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJSegmentViewHead.swift; sourceTree = "<group>"; };
 		7B0F15DF20B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJSegmentViewHeadCell.swift; sourceTree = "<group>"; };
 		7B0F15E320B7BFB10056EDDC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7B8FCAE720B7F60A00732A1E /* JJBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJBaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			children = (
 				7B0F15C820B7B0210056EDDC /* AppDelegate.swift */,
 				7B0F15CA20B7B0210056EDDC /* ViewController.swift */,
+				7B8FCAE720B7F60A00732A1E /* JJBaseViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B0F15CB20B7B0210056EDDC /* ViewController.swift in Sources */,
+				7B8FCAE820B7F60A00732A1E /* JJBaseViewController.swift in Sources */,
 				7B0F15DC20B7B3870056EDDC /* JJSegmentView.swift in Sources */,
 				7B0F15DE20B7B39D0056EDDC /* JJSegmentViewHead.swift in Sources */,
 				7B0F15C920B7B0210056EDDC /* AppDelegate.swift in Sources */,

@@ -14,13 +14,49 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         self.title = "Segment"
+        
+        let titleDatas = ["推荐视频","热点","直播","阿里巴巴","今日头条","腾讯视频"]
+        
+        let frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
+        
+        let segmentView = JJSegmentView(frame: frame,
+                                        delegate: self,
+                                    titleDatas: titleDatas,
+                                    headHeight: 40,
+                                    fontSize: 17,
+                                    headBgNomalColor: UIColor.white,
+                                    headBgSelectColor: UIColor.white,
+                                    headTitleNomalColor: UIColor.black,
+                                    headTitleSelectColor: UIColor.blue,
+                                    headLineNomalColor: UIColor.black,
+                                    headLineSelectColor: UIColor.blue)
+        view.addSubview(segmentView)
+        
     }
+    
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension UIViewController: JJSegmentViewDelegate {
+    func segmentSuperViewController() -> (UIViewController) {
+        return self
     }
+    
+    func segmentSubViewControllerWithIndex(_ segment: JJSegmentView, _ index: NSInteger) -> UIViewController {
+        switch index {
+        case 0:
+                let vc = JJBaseViewController()
+                return vc
+        default:
+            let vc = JJBaseViewController()
+            return vc
+        }
+    }
+    
+    func segmentItemSelectWithIndex(_ segment: JJSegmentView, _ index: NSInteger) {
+        print(index)
+    }
+    
 
-
+    
 }
 
