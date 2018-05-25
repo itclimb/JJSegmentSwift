@@ -11,6 +11,9 @@
 		7B0F15CB20B7B0210056EDDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F15CA20B7B0210056EDDC /* ViewController.swift */; };
 		7B0F15D020B7B0220056EDDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B0F15CF20B7B0220056EDDC /* Assets.xcassets */; };
 		7B0F15D320B7B0220056EDDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B0F15D120B7B0220056EDDC /* LaunchScreen.storyboard */; };
+		7B0F15DC20B7B3870056EDDC /* JJSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F15DB20B7B3870056EDDC /* JJSegmentView.swift */; };
+		7B0F15DE20B7B39D0056EDDC /* JJSegmentViewHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F15DD20B7B39D0056EDDC /* JJSegmentViewHead.swift */; };
+		7B0F15E020B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F15DF20B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		7B0F15CF20B7B0220056EDDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B0F15D220B7B0220056EDDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B0F15D420B7B0220056EDDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B0F15DB20B7B3870056EDDC /* JJSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJSegmentView.swift; sourceTree = "<group>"; };
+		7B0F15DD20B7B39D0056EDDC /* JJSegmentViewHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJSegmentViewHead.swift; sourceTree = "<group>"; };
+		7B0F15DF20B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJSegmentViewHeadCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,13 +58,40 @@
 		7B0F15C720B7B0210056EDDC /* JJSegmentSwift */ = {
 			isa = PBXGroup;
 			children = (
-				7B0F15C820B7B0210056EDDC /* AppDelegate.swift */,
-				7B0F15CA20B7B0210056EDDC /* ViewController.swift */,
+				7B0F15E220B7B3F80056EDDC /* Main */,
+				7B0F15E120B7B3EA0056EDDC /* JJSegment */,
+				7B0F15DA20B7B2EA0056EDDC /* Support Files */,
+			);
+			path = JJSegmentSwift;
+			sourceTree = "<group>";
+		};
+		7B0F15DA20B7B2EA0056EDDC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
 				7B0F15CF20B7B0220056EDDC /* Assets.xcassets */,
 				7B0F15D120B7B0220056EDDC /* LaunchScreen.storyboard */,
 				7B0F15D420B7B0220056EDDC /* Info.plist */,
 			);
-			path = JJSegmentSwift;
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		7B0F15E120B7B3EA0056EDDC /* JJSegment */ = {
+			isa = PBXGroup;
+			children = (
+				7B0F15DB20B7B3870056EDDC /* JJSegmentView.swift */,
+				7B0F15DD20B7B39D0056EDDC /* JJSegmentViewHead.swift */,
+				7B0F15DF20B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift */,
+			);
+			path = JJSegment;
+			sourceTree = "<group>";
+		};
+		7B0F15E220B7B3F80056EDDC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7B0F15C820B7B0210056EDDC /* AppDelegate.swift */,
+				7B0F15CA20B7B0210056EDDC /* ViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,7 +165,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B0F15CB20B7B0210056EDDC /* ViewController.swift in Sources */,
+				7B0F15DC20B7B3870056EDDC /* JJSegmentView.swift in Sources */,
+				7B0F15DE20B7B39D0056EDDC /* JJSegmentViewHead.swift in Sources */,
 				7B0F15C920B7B0210056EDDC /* AppDelegate.swift in Sources */,
+				7B0F15E020B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
