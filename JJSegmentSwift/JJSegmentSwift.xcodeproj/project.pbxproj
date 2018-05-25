@@ -14,6 +14,7 @@
 		7B0F15DC20B7B3870056EDDC /* JJSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F15DB20B7B3870056EDDC /* JJSegmentView.swift */; };
 		7B0F15DE20B7B39D0056EDDC /* JJSegmentViewHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F15DD20B7B39D0056EDDC /* JJSegmentViewHead.swift */; };
 		7B0F15E020B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F15DF20B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift */; };
+		7B0F15E420B7BFB10056EDDC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0F15E320B7BFB10056EDDC /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		7B0F15DB20B7B3870056EDDC /* JJSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJSegmentView.swift; sourceTree = "<group>"; };
 		7B0F15DD20B7B39D0056EDDC /* JJSegmentViewHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJSegmentViewHead.swift; sourceTree = "<group>"; };
 		7B0F15DF20B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJSegmentViewHeadCell.swift; sourceTree = "<group>"; };
+		7B0F15E320B7BFB10056EDDC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 		7B0F15BC20B7B0200056EDDC = {
 			isa = PBXGroup;
 			children = (
+				7B0F15E320B7BFB10056EDDC /* Default-568h@2x.png */,
 				7B0F15C720B7B0210056EDDC /* JJSegmentSwift */,
 				7B0F15C620B7B0210056EDDC /* Products */,
 			);
@@ -68,9 +71,9 @@
 		7B0F15DA20B7B2EA0056EDDC /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				7B0F15D420B7B0220056EDDC /* Info.plist */,
 				7B0F15CF20B7B0220056EDDC /* Assets.xcassets */,
 				7B0F15D120B7B0220056EDDC /* LaunchScreen.storyboard */,
-				7B0F15D420B7B0220056EDDC /* Info.plist */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			files = (
 				7B0F15D320B7B0220056EDDC /* LaunchScreen.storyboard in Resources */,
 				7B0F15D020B7B0220056EDDC /* Assets.xcassets in Resources */,
+				7B0F15E420B7BFB10056EDDC /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,7 +310,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 93A3WCDBZD;
-				INFOPLIST_FILE = JJSegmentSwift/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/JJSegmentSwift/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -325,7 +329,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 93A3WCDBZD;
-				INFOPLIST_FILE = JJSegmentSwift/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/JJSegmentSwift/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

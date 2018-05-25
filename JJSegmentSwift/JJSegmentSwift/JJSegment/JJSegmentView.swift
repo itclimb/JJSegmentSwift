@@ -8,14 +8,41 @@
 
 import UIKit
 
+protocol JJSegmentViewDelegate : NSObjectProtocol {
+    //  指明父控制器
+    func segmentSuperViewController() -> (UIViewController)
+    //  创建子控制器
+    func segmentSubViewControllerWithIndex(_ segment:JJSegmentView, _ index:NSInteger) -> UIViewController
+    //  点击标签栏标签时
+    func segmentItemSelectWithIndex(_ segment:JJSegmentView, _ index: NSInteger)
+
+}
+
 class JJSegmentView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    var delegate: JJSegmentViewDelegate?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
-    */
+    
+    convenience init(frame: CGRect,
+                  delegate: JJSegmentViewDelegate,
+                  tittleDatas: [String],
+                  headHeight: CGFloat,
+                  fontSize: CGFloat,
+                  headBgNomalColor: UIColor,
+                  headBgSelectColor: UIColor,
+                  headTitleNomalColor: UIColor,
+                  headTitleSelectColor: UIColor,
+                  headLineNomalColor: UIColor,
+                  headLineSelectColor: UIColor)
+    {
+        self.init(frame: frame)
 
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 }
