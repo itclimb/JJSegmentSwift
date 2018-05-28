@@ -16,9 +16,12 @@
 		7B0F15E020B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F15DF20B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift */; };
 		7B0F15E420B7BFB10056EDDC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0F15E320B7BFB10056EDDC /* Default-568h@2x.png */; };
 		7B8FCAE820B7F60A00732A1E /* JJBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FCAE720B7F60A00732A1E /* JJBaseViewController.swift */; };
+		9538613A01A7039C4CE33FF7 /* Pods_JJSegmentSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A71EEC7E7B638F3383BBFDCA /* Pods_JJSegmentSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AD73A3DCF9BC6F21119E27C /* Pods-JJSegmentSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJSegmentSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JJSegmentSwift/Pods-JJSegmentSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		463127CB8CD029D928AB548D /* Pods-JJSegmentSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJSegmentSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-JJSegmentSwift/Pods-JJSegmentSwift.release.xcconfig"; sourceTree = "<group>"; };
 		7B0F15C520B7B0210056EDDC /* JJSegmentSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JJSegmentSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0F15C820B7B0210056EDDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B0F15CA20B7B0210056EDDC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +33,7 @@
 		7B0F15DF20B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJSegmentViewHeadCell.swift; sourceTree = "<group>"; };
 		7B0F15E320B7BFB10056EDDC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7B8FCAE720B7F60A00732A1E /* JJBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJBaseViewController.swift; sourceTree = "<group>"; };
+		A71EEC7E7B638F3383BBFDCA /* Pods_JJSegmentSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JJSegmentSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,18 +41,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9538613A01A7039C4CE33FF7 /* Pods_JJSegmentSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		67D4C3610A9DDADADD83EF2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A71EEC7E7B638F3383BBFDCA /* Pods_JJSegmentSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7B0F15BC20B7B0200056EDDC = {
 			isa = PBXGroup;
 			children = (
 				7B0F15E320B7BFB10056EDDC /* Default-568h@2x.png */,
 				7B0F15C720B7B0210056EDDC /* JJSegmentSwift */,
 				7B0F15C620B7B0210056EDDC /* Products */,
+				812F029E8D77BC26C20E141E /* Pods */,
+				67D4C3610A9DDADADD83EF2E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +115,15 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		812F029E8D77BC26C20E141E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1AD73A3DCF9BC6F21119E27C /* Pods-JJSegmentSwift.debug.xcconfig */,
+				463127CB8CD029D928AB548D /* Pods-JJSegmentSwift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -107,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B0F15D720B7B0220056EDDC /* Build configuration list for PBXNativeTarget "JJSegmentSwift" */;
 			buildPhases = (
+				A0F1B73747548204781065FA /* [CP] Check Pods Manifest.lock */,
 				7B0F15C120B7B0210056EDDC /* Sources */,
 				7B0F15C220B7B0210056EDDC /* Frameworks */,
 				7B0F15C320B7B0210056EDDC /* Resources */,
+				E98FA06DFF4577B88D5AE1AA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,6 +191,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A0F1B73747548204781065FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JJSegmentSwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E98FA06DFF4577B88D5AE1AA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JJSegmentSwift/Pods-JJSegmentSwift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JJSegmentSwift/Pods-JJSegmentSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7B0F15C120B7B0210056EDDC /* Sources */ = {
@@ -310,6 +375,7 @@
 		};
 		7B0F15D820B7B0220056EDDC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AD73A3DCF9BC6F21119E27C /* Pods-JJSegmentSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -329,6 +395,7 @@
 		};
 		7B0F15D920B7B0220056EDDC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 463127CB8CD029D928AB548D /* Pods-JJSegmentSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
