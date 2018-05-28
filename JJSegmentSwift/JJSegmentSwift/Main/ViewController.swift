@@ -45,9 +45,11 @@ extension UIViewController: JJSegmentViewDelegate {
         switch index {
         case 0:
                 let vc = JJBaseViewController()
+                vc.view.backgroundColor = .blue
                 return vc
         default:
             let vc = JJBaseViewController()
+            vc.view.backgroundColor = UIColor(red: CGFloat(arc4random()%256)/255.0, green: CGFloat(arc4random()%256)/255.0, blue: CGFloat(arc4random()%256)/255.0, alpha: 1.0)
             return vc
         }
     }

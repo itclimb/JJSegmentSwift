@@ -15,6 +15,7 @@
 		7B0F15DE20B7B39D0056EDDC /* JJSegmentViewHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F15DD20B7B39D0056EDDC /* JJSegmentViewHead.swift */; };
 		7B0F15E020B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F15DF20B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift */; };
 		7B0F15E420B7BFB10056EDDC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0F15E320B7BFB10056EDDC /* Default-568h@2x.png */; };
+		7B48C73E20BBD27D00908E7A /* XXColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B48C73D20BBD27D00908E7A /* XXColor.swift */; };
 		7B8FCAE820B7F60A00732A1E /* JJBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FCAE720B7F60A00732A1E /* JJBaseViewController.swift */; };
 		9538613A01A7039C4CE33FF7 /* Pods_JJSegmentSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A71EEC7E7B638F3383BBFDCA /* Pods_JJSegmentSwift.framework */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		7B0F15DD20B7B39D0056EDDC /* JJSegmentViewHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJSegmentViewHead.swift; sourceTree = "<group>"; };
 		7B0F15DF20B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJSegmentViewHeadCell.swift; sourceTree = "<group>"; };
 		7B0F15E320B7BFB10056EDDC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7B48C73D20BBD27D00908E7A /* XXColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XXColor.swift; sourceTree = "<group>"; };
 		7B8FCAE720B7F60A00732A1E /* JJBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJBaseViewController.swift; sourceTree = "<group>"; };
 		A71EEC7E7B638F3383BBFDCA /* Pods_JJSegmentSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JJSegmentSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,6 +100,7 @@
 		7B0F15E120B7B3EA0056EDDC /* JJSegment */ = {
 			isa = PBXGroup;
 			children = (
+				7B48C73D20BBD27D00908E7A /* XXColor.swift */,
 				7B0F15DB20B7B3870056EDDC /* JJSegmentView.swift */,
 				7B0F15DD20B7B39D0056EDDC /* JJSegmentViewHead.swift */,
 				7B0F15DF20B7B3DF0056EDDC /* JJSegmentViewHeadCell.swift */,
@@ -238,6 +241,7 @@
 			files = (
 				7B0F15CB20B7B0210056EDDC /* ViewController.swift in Sources */,
 				7B8FCAE820B7F60A00732A1E /* JJBaseViewController.swift in Sources */,
+				7B48C73E20BBD27D00908E7A /* XXColor.swift in Sources */,
 				7B0F15DC20B7B3870056EDDC /* JJSegmentView.swift in Sources */,
 				7B0F15DE20B7B39D0056EDDC /* JJSegmentViewHead.swift in Sources */,
 				7B0F15C920B7B0210056EDDC /* AppDelegate.swift in Sources */,

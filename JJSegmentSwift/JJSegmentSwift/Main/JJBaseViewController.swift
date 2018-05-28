@@ -12,7 +12,7 @@ class JJBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        //view.backgroundColor = .white
 
         // Do any additional setup after loading the view.
     }

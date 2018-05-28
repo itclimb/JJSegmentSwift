@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol JJSegmentViewDelegate : NSObjectProtocol {
     //  指明父控制器
@@ -98,13 +99,30 @@ class JJSegmentView: UIView {
         let scrollView_frame = CGRect(x: 0, y: segmentHead_frame.size.height + segmentHead_frame.origin.y, width: self.bounds.width, height: self.bounds.height - segmentHead_frame.size.height)
         let scrollView = UIScrollView(frame: scrollView_frame)
         scrollView.backgroundColor = .blue
+        scrollView.isPagingEnabled = true
+        scrollView.bounces = false
         self.addSubview(scrollView)
+        
+        var lastView:UIView? = nil
         
         for i in 0..<(self.titleDatas?.count)! {
             let baseVc = self.delegate?.segmentSubViewControllerWithIndex(self, i)
             self.delegate?.segmentSuperViewController().addChildViewController(baseVc!)
             scrollView.addSubview((baseVc?.view)!)
-            
+            //  scrollView的布局
+            baseVc?.view.snp.makeConstraints({ (make) in
+                make.height.width.equalTo(scrollView)
+                make.top.bottom.equalTo(scrollView)
+                if i == 0 {
+                    make.leading.equalTo(scrollView)
+                }else {
+                    make.leading.equalTo((lastView?.snp.trailing)!)
+                    if (i == (self.titleDatas?.count)! - 1) {
+                        make.trailing.equalTo(scrollView)
+                    }
+                }
+            })
+            lastView = baseVc?.view
         }
         
     }
