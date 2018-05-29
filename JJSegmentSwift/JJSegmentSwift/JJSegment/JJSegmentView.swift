@@ -21,7 +21,7 @@ protocol JJSegmentViewDelegate : NSObjectProtocol {
 
 class JJSegmentView: UIView {
     var delegate: JJSegmentViewDelegate?
-    var titleDatas: Array<Any>?
+    var titleDatas: Array<String>?
 //    {
 //        didSet{
 //            if (self.titleDatas?.count)! <= 0 { return }
@@ -44,6 +44,8 @@ class JJSegmentView: UIView {
     var headLineNomalColor: UIColor?
     var headLineSelectColor: UIColor?
     var segmentHead:JJSegmentViewHead?
+    var scrollView: UIScrollView?
+    
     
     
     
@@ -73,7 +75,7 @@ class JJSegmentView: UIView {
         self.headTitleSelectColor = headTitleSelectColor
         self.headLineNomalColor = headLineNomalColor
         self.headLineSelectColor = headLineSelectColor
-        self.titleDatas = titleDatas
+        self.titleDatas = titleDatas as? Array<String>
         
         self.createSubViews()
     }
@@ -91,9 +93,18 @@ class JJSegmentView: UIView {
             subView .removeFromSuperview()
         }
         
-        let segmentHead_frame = CGRect(x: 0, y: 64, width: self.bounds.width, height: 40)
-        segmentHead = JJSegmentViewHead(frame: segmentHead_frame)
+        let segmentHead_frame = CGRect(x: 0, y: 64, width: self.bounds.size.width, height: self.headHeight!)
+        segmentHead = JJSegmentViewHead(frame:segmentHead_frame,
+                        bgNomalColor: self.headBgNomalColor!,
+                        bgSelectColor: self.headBgSelectColor!,
+                        titleNomalColor: self.headTitleNomalColor!,
+                        titleSelectColor: self.headTitleSelectColor!,
+                        lineNomalColor: self.headLineNomalColor!,
+                        lineSelectColor: self.headLineSelectColor!,
+                        fontSize: self.fontSize!,
+                        titleDatas: self.titleDatas!)
         segmentHead?.backgroundColor = .red
+        segmentHead?.delegate = self
         self.addSubview(segmentHead!)
         
         let scrollView_frame = CGRect(x: 0, y: segmentHead_frame.size.height + segmentHead_frame.origin.y, width: self.bounds.width, height: self.bounds.height - segmentHead_frame.size.height)
@@ -102,6 +113,7 @@ class JJSegmentView: UIView {
         scrollView.isPagingEnabled = true
         scrollView.bounces = false
         self.addSubview(scrollView)
+        self.scrollView = scrollView
         
         var lastView:UIView? = nil
         
@@ -126,4 +138,22 @@ class JJSegmentView: UIView {
         }
         
     }
+}
+
+extension JJSegmentView:JJSegmentViewHeadDelegate {
+    func segmentViewHeadNumberOfItems() -> NSInteger {
+        return (self.titleDatas?.count)!
+    }
+    
+    func segmentViewHeadItemSize(_ segmentViewHead: JJSegmentViewHead, _ index: NSInteger) -> CGSize {
+        return CGSize(width: 100, height: 40)
+    }
+    
+    
+    func segmentViewHeadSelectIndexOfItem(_ index: NSInteger) {
+        self.scrollView?.setContentOffset(CGPoint(x: self.bounds.size.width * CGFloat(index), y: 0), animated: false)
+        self.delegate?.segmentItemSelectWithIndex(self, index)
+    }
+    
+    
 }
