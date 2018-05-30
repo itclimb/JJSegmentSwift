@@ -22,19 +22,6 @@ protocol JJSegmentViewDelegate : NSObjectProtocol {
 class JJSegmentView: UIView {
     var delegate: JJSegmentViewDelegate?
     var titleDatas: Array<String>?
-//    {
-//        didSet{
-//            if (self.titleDatas?.count)! <= 0 { return }
-//            for vc in (self.delegate?.segmentSuperViewController().childViewControllers)! {
-//                vc.removeFromParentViewController()
-//            }
-//            for subView in self.subviews {
-//                subView.removeFromSuperview()
-//            }
-//
-//            self.createSubViews()
-//        }
-//    }
     var headHeight: CGFloat?
     var fontSize: CGFloat?
     var headBgNomalColor: UIColor?
@@ -149,15 +136,15 @@ extension JJSegmentView: JJSegmentViewHeadDelegate {
         var totalLength : CGFloat = 0
         for str in self.titleDatas! {
             let ocStr: NSString = str as NSString
-            let strSize = ocStr.size(withAttributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17.0)])
+            let strSize = ocStr.size(withAttributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: self.fontSize ?? 17.0)])
             totalLength += strSize.width + 25
         }
         if totalLength < self.bounds.size.width {
-            return CGSize(width: self.bounds.size.width/CGFloat((self.titleDatas?.count)!), height: 40)
+            return CGSize(width: self.bounds.size.width/CGFloat((self.titleDatas?.count)!), height: self.headHeight ?? 40)
         }else {
             let subStr = self.titleDatas![index]
             let ocSubStr: NSString = subStr as NSString
-            let subStrSize = ocSubStr.size(withAttributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17.0)])
+            let subStrSize = ocSubStr.size(withAttributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: self.fontSize ?? 17.0)])
             return CGSize(width: subStrSize.width + 25, height: 40)
         }
     }

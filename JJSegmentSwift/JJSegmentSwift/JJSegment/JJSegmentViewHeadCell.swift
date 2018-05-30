@@ -34,8 +34,7 @@ class JJSegmentViewHeadCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let fontSize:CGFloat = 17
-        self.titleLabel?.font = UIFont(name: "HelveticaNeue", size: fontSize)
+        self.titleLabel?.font = UIFont(name: "HelveticaNeue", size: fontSize ?? 17.0)
         self.titleLabel?.snp.makeConstraints({ (make) in
             make.centerX.equalToSuperview()
             make.top.bottom.equalToSuperview()
