@@ -9,13 +9,13 @@
 import UIKit
 import SnapKit
 
-protocol JJSegmentViewDelegate : NSObjectProtocol {
+@objc protocol JJSegmentViewDelegate : NSObjectProtocol {
     //  指明父控制器
     func segmentSuperViewController() -> (UIViewController)
     //  创建子控制器
     func segmentSubViewControllerWithIndex(_ segment:JJSegmentView, _ index:NSInteger) -> UIViewController
     //  点击标签栏标签时
-    func segmentItemSelectWithIndex(_ segment:JJSegmentView, _ index: NSInteger)
+    @objc optional func segmentItemSelectWithIndex(_ segment:JJSegmentView, _ index: NSInteger)
 
 }
 
@@ -151,7 +151,7 @@ extension JJSegmentView: JJSegmentViewHeadDelegate {
     
     func segmentViewHeadSelectIndexOfItem(_ index: NSInteger) {
         self.scrollView?.setContentOffset(CGPoint(x: self.bounds.size.width * CGFloat(index), y: 0), animated: false)
-        self.delegate?.segmentItemSelectWithIndex(self, index)
+        self.delegate?.segmentItemSelectWithIndex!(self, index)
     }
 }
 

@@ -36,12 +36,12 @@ class JJSegmentViewHeadCell: UICollectionViewCell {
         
         self.titleLabel?.font = UIFont(name: "HelveticaNeue", size: fontSize ?? 17.0)
         self.titleLabel?.snp.makeConstraints({ (make) in
-            make.centerX.equalToSuperview()
-            make.top.bottom.equalToSuperview()
+            make.centerX.equalTo(contentView)
+            make.top.bottom.equalTo(contentView)
         })
         
         self.line?.snp.makeConstraints({ (make) in
-            make.leading.trailing.bottom.equalToSuperview()
+            make.leading.trailing.bottom.equalTo(contentView)
             make.height.equalTo(2)
         })
         
