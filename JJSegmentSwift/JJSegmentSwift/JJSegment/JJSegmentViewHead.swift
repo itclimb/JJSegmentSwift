@@ -126,3 +126,20 @@ extension JJSegmentViewHead: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
 }
+
+extension JJSegmentViewHead {
+    
+    func segmentViewHeadItemSetThroughScroll(index: NSInteger) {
+        if index > (self.delegate?.segmentViewHeadNumberOfItems())! || index < 0 {
+            return
+        }
+        
+        self.collectionView?.scrollToItem(at: NSIndexPath(item: index, section: 0) as IndexPath, at: .centeredHorizontally, animated: true)
+        self.selectIndex = index
+        self.collectionView?.reloadData()
+    }
+    
+    func reloadData() {
+        self.collectionView?.reloadData()
+    }
+}

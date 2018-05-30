@@ -112,6 +112,7 @@ class JJSegmentView: UIView {
         scrollView.backgroundColor = .blue
         scrollView.isPagingEnabled = true
         scrollView.bounces = false
+        scrollView.delegate = self
         self.addSubview(scrollView)
         self.scrollView = scrollView
         
@@ -136,11 +137,10 @@ class JJSegmentView: UIView {
             })
             lastView = baseVc?.view
         }
-        
     }
 }
 
-extension JJSegmentView:JJSegmentViewHeadDelegate {
+extension JJSegmentView: JJSegmentViewHeadDelegate {
     func segmentViewHeadNumberOfItems() -> NSInteger {
         return (self.titleDatas?.count)!
     }
@@ -149,14 +149,14 @@ extension JJSegmentView:JJSegmentViewHeadDelegate {
         return CGSize(width: 100, height: 40)
     }
     
-    
     func segmentViewHeadSelectIndexOfItem(_ index: NSInteger) {
         self.scrollView?.setContentOffset(CGPoint(x: self.bounds.size.width * CGFloat(index), y: 0), animated: false)
         self.delegate?.segmentItemSelectWithIndex(self, index)
     }
-    
 }
 
-extension JJSegmentView {
-    
+extension JJSegmentView: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.segmentHead?.segmentViewHeadItemSetThroughScroll(index: NSInteger(scrollView.contentOffset.x / self.bounds.size.width))
+    }
 }
