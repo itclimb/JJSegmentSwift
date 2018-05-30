@@ -146,7 +146,20 @@ extension JJSegmentView: JJSegmentViewHeadDelegate {
     }
     
     func segmentViewHeadItemSize(_ segmentViewHead: JJSegmentViewHead, _ index: NSInteger) -> CGSize {
-        return CGSize(width: 100, height: 40)
+        var totalLength : CGFloat = 0
+        for str in self.titleDatas! {
+            let ocStr: NSString = str as NSString
+            let strSize = ocStr.size(withAttributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17.0)])
+            totalLength += strSize.width + 25
+        }
+        if totalLength < self.bounds.size.width {
+            return CGSize(width: self.bounds.size.width/CGFloat((self.titleDatas?.count)!), height: 40)
+        }else {
+            let subStr = self.titleDatas![index]
+            let ocSubStr: NSString = subStr as NSString
+            let subStrSize = ocSubStr.size(withAttributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17.0)])
+            return CGSize(width: subStrSize.width + 25, height: 40)
+        }
     }
     
     func segmentViewHeadSelectIndexOfItem(_ index: NSInteger) {
