@@ -155,5 +155,8 @@ extension JJSegmentView:JJSegmentViewHeadDelegate {
         self.delegate?.segmentItemSelectWithIndex(self, index)
     }
     
+}
+
+extension JJSegmentView {
     
 }
