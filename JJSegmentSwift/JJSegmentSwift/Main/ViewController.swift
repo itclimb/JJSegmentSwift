@@ -28,7 +28,7 @@ class ViewController: UIViewController {
                                     headBgSelectColor: UIColor.white,
                                     headTitleNomalColor: UIColor.black,
                                     headTitleSelectColor: UIColor.blue,
-                                    headLineNomalColor: UIColor.black,
+                                    headLineNomalColor: UIColor.white,
                                     headLineSelectColor: UIColor.blue)
         view.addSubview(segmentView)
         

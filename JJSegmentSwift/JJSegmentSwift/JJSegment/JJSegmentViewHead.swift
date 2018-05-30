@@ -50,6 +50,7 @@ class JJSegmentViewHead: UIView {
         self.lineSelectColor = lineSelectColor
         self.fontSize = fontSize
         self.titleDatas = titleDatas
+        self.selectIndex = 0
         self.createSubViews()
     }
     
@@ -64,11 +65,13 @@ class JJSegmentViewHead: UIView {
         self.collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
         collectionView?.delegate = self
         collectionView?.dataSource = self
+        collectionView?.showsHorizontalScrollIndicator = false
+        collectionView?.bounces = false
         self.addSubview(self.collectionView!)
         self.collectionView?.snp.makeConstraints({ (make) in
             make.edges.equalToSuperview()
         })
-        self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "kCell")
+        self.collectionView?.register(JJSegmentViewHeadCell.self, forCellWithReuseIdentifier: "kCell")
     
     }
     
@@ -76,6 +79,7 @@ class JJSegmentViewHead: UIView {
 
 extension JJSegmentViewHead: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
+    //MARK: - UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
@@ -88,19 +92,36 @@ extension JJSegmentViewHead: UICollectionViewDelegate, UICollectionViewDataSourc
         return (self.delegate?.segmentViewHeadItemSize(self, indexPath.row))!
     }
     
+    //MARK: - UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if self.selectIndex == indexPath.row {
             return
         }
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        self.collectionView?.reloadData()
+        self.selectIndex = indexPath.row
+        self.delegate?.segmentViewHeadSelectIndexOfItem(indexPath.row)
     }
     
+    //MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (self.delegate?.segmentViewHeadNumberOfItems())!
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "kCell", for: indexPath)
+        let cell: JJSegmentViewHeadCell = collectionView.dequeueReusableCell(withReuseIdentifier: "kCell", for: indexPath) as! JJSegmentViewHeadCell
         cell.backgroundColor = .yellow
+        cell.titleLabel?.text = self.titleDatas?[indexPath.row] as? String
+        cell.fontSize = self.fontSize
+        if selectIndex == indexPath.item {
+            cell.line?.backgroundColor = lineSelectColor
+            cell.titleLabel?.textColor = titleSelectColor
+            cell.contentView.backgroundColor = bgSelectColor
+        }else {
+            cell.line?.backgroundColor = lineNomalColor
+            cell.titleLabel?.textColor = titleNomalColor
+            cell.contentView.backgroundColor = bgNomalColor
+        }
         return cell
     }
     
