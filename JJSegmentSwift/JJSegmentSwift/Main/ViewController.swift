@@ -16,18 +16,12 @@ class ViewController: UIViewController {
         self.title = "Segment"
         
         let titleDatas = ["推荐视频","热点","直播","阿里巴巴","今日头条","腾讯视频"]
-        
         let frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
 
         let segmentView = JJSegmentView(frame: frame,
                                         delegate: self,
                                         titleDatas: titleDatas,
-                                        headHeight: 40,
-                                        fontSize: 17,
-                                        headBgColor: UIColor.white,
-                                        headTitleColor: UIColor.blue,
-                                        headIndicatorLineColor: UIColor.blue)
-        
+                                        headTitleColor: UIColor.blue)
         view.addSubview(segmentView)
         
     }
@@ -35,6 +29,8 @@ class ViewController: UIViewController {
 }
 
 extension UIViewController: JJSegmentViewDelegate {
+    
+    // MARK: - JJSegmentViewDelegate
     func segmentSuperViewController() -> (UIViewController) {
         return self
     }
@@ -43,11 +39,14 @@ extension UIViewController: JJSegmentViewDelegate {
         switch index {
         case 0:
                 let vc = JJBaseViewController()
-                vc.view.backgroundColor = .blue
+                vc.view.backgroundColor = UIColor(red: CGFloat(arc4random()%256)/255.0, green: CGFloat(arc4random()%256)/255.0, blue: CGFloat(arc4random()%256)/255.0, alpha: 1.0)
                 return vc
         default:
             let vc = JJBaseViewController()
-            vc.view.backgroundColor = UIColor(red: CGFloat(arc4random()%256)/255.0, green: CGFloat(arc4random()%256)/255.0, blue: CGFloat(arc4random()%256)/255.0, alpha: 1.0)
+            vc.view.backgroundColor = UIColor(
+                red: CGFloat(arc4random()%256)/255.0,
+                green: CGFloat(arc4random()%256)/255.0,
+                blue: CGFloat(arc4random()%256)/255.0, alpha: 1.0)
             return vc
         }
     }
@@ -57,6 +56,5 @@ extension UIViewController: JJSegmentViewDelegate {
     }
     
 
-    
 }
 

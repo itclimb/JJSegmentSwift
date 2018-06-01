@@ -81,6 +81,21 @@ class JJSegmentView: UIView {
                   headIndicatorLineColor: headIndicatorLineColor)
     }
     
+    //  便利构造器2
+    convenience init(frame: CGRect,
+                     delegate: JJSegmentViewDelegate,
+                     titleDatas: Array<Any>,
+                     headTitleColor: UIColor) {
+        self.init(frame: frame,
+                  delegate: delegate,
+                  titleDatas: titleDatas,
+                  headHeight: 40,
+                  fontSize: 17,
+                  headBgColor: UIColor.white,
+                  headTitleColor: headTitleColor,
+                  headIndicatorLineColor: headTitleColor)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
