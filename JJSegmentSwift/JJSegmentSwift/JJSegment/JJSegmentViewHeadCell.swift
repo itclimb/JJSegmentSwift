@@ -9,11 +9,11 @@
 import UIKit
 
 class JJSegmentViewHeadCell: UICollectionViewCell {
-    //  标题
+    //  标签标题
     var titleLabel: UILabel?
-    //  底部线条
+    //  标签底部线条
     var line: UIView?
-    //  字体大小
+    //  标签字体大小
     var fontSize: CGFloat?
     
     override init(frame: CGRect) {

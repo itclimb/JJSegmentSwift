@@ -113,10 +113,6 @@ extension JJSegmentViewHead: UICollectionViewDelegate, UICollectionViewDataSourc
         if self.selectIndex == indexPath.row {
             return
         }
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        self.collectionV?.reloadData()
-        self.selectIndex = indexPath.row
-
         
         var cell = collectionView.cellForItem(at: indexPath)
         if cell == nil {
@@ -130,6 +126,10 @@ extension JJSegmentViewHead: UICollectionViewDelegate, UICollectionViewDataSourc
             let indicateLine_frame = CGRect(x: (cell?.frame.origin.x)!, y: (cell?.frame.size.height)! - 2, width: (cell?.frame.size.width)!, height: 2)
             self.indicateLine?.frame = indicateLine_frame
         }
+        
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        self.collectionV?.reloadData()
+        self.selectIndex = indexPath.row
         
         self.delegate?.segmentViewHeadSelectIndexOfItem(indexPath.row)
     }
@@ -164,9 +164,6 @@ extension JJSegmentViewHead {
         if index > (self.delegate?.segmentViewHeadNumberOfItems())! || index < 0 {
             return
         }
-        self.collectionV?.scrollToItem(at: NSIndexPath(item: index, section: 0) as IndexPath, at: .centeredHorizontally, animated: true)
-        self.selectIndex = index
-        self.collectionV?.reloadData()
         
         let indexP = IndexPath(item: index, section: 0)
         var cell = collectionV?.cellForItem(at: indexP)
@@ -177,9 +174,16 @@ extension JJSegmentViewHead {
             collectionV?.selectItem(at: indexP, animated: true, scrollPosition: .top)
         }
         
+        
         UIView.animate(withDuration: 0.4) {
             let indicateLine_frame = CGRect(x: (cell?.frame.origin.x)!, y: (cell?.frame.size.height)! - 2, width: (cell?.frame.size.width)!, height: 2)
             self.indicateLine?.frame = indicateLine_frame
         }
+        
+        self.collectionV?.scrollToItem(at: NSIndexPath(item: index, section: 0) as IndexPath, at: .centeredHorizontally, animated: true)
+        self.selectIndex = index
+        self.collectionV?.reloadData()
+        
     }
+    
 }
