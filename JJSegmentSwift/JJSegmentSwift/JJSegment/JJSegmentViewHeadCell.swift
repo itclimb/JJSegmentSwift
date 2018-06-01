@@ -40,11 +40,10 @@ class JJSegmentViewHeadCell: UICollectionViewCell {
             make.top.bottom.equalTo(contentView)
         })
         
-        self.line?.snp.makeConstraints({ (make) in
-            make.leading.trailing.bottom.equalTo(contentView)
-            make.height.equalTo(2)
-        })
-        
+//        self.line?.snp.makeConstraints({ (make) in
+//            make.leading.trailing.bottom.equalTo(contentView)
+//            make.height.equalTo(2)
+//        })
     }
     
     

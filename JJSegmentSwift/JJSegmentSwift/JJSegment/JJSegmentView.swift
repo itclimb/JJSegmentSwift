@@ -32,8 +32,7 @@ class JJSegmentView: UIView {
     var headLineSelectColor: UIColor?
     var segmentHead:JJSegmentViewHead?
     var scrollView: UIScrollView?
-    
-    
+
     
     
     override init(frame: CGRect) {
@@ -80,6 +79,7 @@ class JJSegmentView: UIView {
             subView .removeFromSuperview()
         }
         
+        //  头部标签视图
         let segmentHead_frame = CGRect(x: 0, y: 64, width: self.bounds.size.width, height: self.headHeight!)
         segmentHead = JJSegmentViewHead(frame:segmentHead_frame,
                         bgNomalColor: self.headBgNomalColor!,
@@ -94,6 +94,7 @@ class JJSegmentView: UIView {
         segmentHead?.delegate = self
         self.addSubview(segmentHead!)
         
+        //  展示视图
         let scrollView_frame = CGRect(x: 0, y: segmentHead_frame.size.height + segmentHead_frame.origin.y, width: self.bounds.width, height: self.bounds.height - segmentHead_frame.size.height)
         let scrollView = UIScrollView(frame: scrollView_frame)
         scrollView.backgroundColor = .blue
@@ -104,7 +105,7 @@ class JJSegmentView: UIView {
         self.scrollView = scrollView
         
         var lastView:UIView? = nil
-        
+    
         for i in 0..<(self.titleDatas?.count)! {
             let baseVc = self.delegate?.segmentSubViewControllerWithIndex(self, i)
             self.delegate?.segmentSuperViewController().addChildViewController(baseVc!)
@@ -137,7 +138,7 @@ extension JJSegmentView: JJSegmentViewHeadDelegate {
         for str in self.titleDatas! {
             let ocStr: NSString = str as NSString
             let strSize = ocStr.size(withAttributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: self.fontSize ?? 17.0)])
-            totalLength += strSize.width + 25
+            totalLength += strSize.width + 20
         }
         if totalLength < self.bounds.size.width {
             return CGSize(width: self.bounds.size.width/CGFloat((self.titleDatas?.count)!), height: self.headHeight ?? 40)
@@ -145,7 +146,7 @@ extension JJSegmentView: JJSegmentViewHeadDelegate {
             let subStr = self.titleDatas![index]
             let ocSubStr: NSString = subStr as NSString
             let subStrSize = ocSubStr.size(withAttributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: self.fontSize ?? 17.0)])
-            return CGSize(width: subStrSize.width + 25, height: 40)
+            return CGSize(width: subStrSize.width + 20, height: 40)
         }
     }
     

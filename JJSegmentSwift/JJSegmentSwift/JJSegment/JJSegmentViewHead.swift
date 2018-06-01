@@ -17,7 +17,7 @@ protocol JJSegmentViewHeadDelegate {
 class JJSegmentViewHead: UIView {
     
     var delegate: JJSegmentViewHeadDelegate?
-    var collectionView: UICollectionView?
+    var collectionV: UICollectionView?
     var selectIndex: NSInteger?
     var fontSize: CGFloat?
     var titleDatas: Array<Any>?
@@ -27,6 +27,8 @@ class JJSegmentViewHead: UIView {
     var titleSelectColor: UIColor?
     var lineNomalColor: UIColor?
     var lineSelectColor: UIColor?
+    var indicateLine: UIView?
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,19 +64,28 @@ class JJSegmentViewHead: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         
-        self.collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
-        collectionView?.delegate = self
-        collectionView?.dataSource = self
-        collectionView?.showsHorizontalScrollIndicator = false
-        collectionView?.bounces = false
-        self.addSubview(self.collectionView!)
-        self.collectionView?.snp.makeConstraints({ (make) in
+        self.collectionV = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
+        collectionV?.delegate = self
+        collectionV?.dataSource = self
+        collectionV?.showsHorizontalScrollIndicator = false
+        collectionV?.bounces = false
+        self.addSubview(self.collectionV!)
+        self.collectionV?.snp.makeConstraints({ (make) in
             make.edges.equalToSuperview()
         })
-        self.collectionView?.register(JJSegmentViewHeadCell.self, forCellWithReuseIdentifier: "kCell")
+        self.collectionV?.register(JJSegmentViewHeadCell.self, forCellWithReuseIdentifier: "kCell")
     
+        //  指示器
+        indicateLine = UIView()
+        indicateLine?.backgroundColor = .red
+        self.collectionV?.addSubview(indicateLine!)
+        // 开启线程
+        DispatchQueue.main.async {
+            // 主线程中
+            let size = self.delegate?.segmentViewHeadItemSize(self, 0)
+            self.indicateLine?.frame = CGRect(x: 0, y:(size?.height)! - 2, width:(size?.width)!, height: 2)
+        }
     }
-    
 }
 
 extension JJSegmentViewHead: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
@@ -98,12 +109,28 @@ extension JJSegmentViewHead: UICollectionViewDelegate, UICollectionViewDataSourc
     
     //MARK: - UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         if self.selectIndex == indexPath.row {
             return
         }
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        self.collectionView?.reloadData()
+        self.collectionV?.reloadData()
         self.selectIndex = indexPath.row
+
+        
+        var cell = collectionView.cellForItem(at: indexPath)
+        if cell == nil {
+            collectionView.layoutIfNeeded()
+            cell = collectionView.cellForItem(at: indexPath)
+            cell!.isSelected = true
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
+        }
+        
+        UIView.animate(withDuration: 0.4) {
+            let indicateLine_frame = CGRect(x: (cell?.frame.origin.x)!, y: (cell?.frame.size.height)! - 2, width: (cell?.frame.size.width)!, height: 2)
+            self.indicateLine?.frame = indicateLine_frame
+        }
+        
         self.delegate?.segmentViewHeadSelectIndexOfItem(indexPath.row)
     }
     
@@ -137,8 +164,22 @@ extension JJSegmentViewHead {
         if index > (self.delegate?.segmentViewHeadNumberOfItems())! || index < 0 {
             return
         }
-        self.collectionView?.scrollToItem(at: NSIndexPath(item: index, section: 0) as IndexPath, at: .centeredHorizontally, animated: true)
+        self.collectionV?.scrollToItem(at: NSIndexPath(item: index, section: 0) as IndexPath, at: .centeredHorizontally, animated: true)
         self.selectIndex = index
-        self.collectionView?.reloadData()
+        self.collectionV?.reloadData()
+        
+        let indexP = IndexPath(item: index, section: 0)
+        var cell = collectionV?.cellForItem(at: indexP)
+        if cell == nil {
+            collectionV?.layoutIfNeeded()
+            cell = collectionV?.cellForItem(at: indexP)
+            cell!.isSelected = true
+            collectionV?.selectItem(at: indexP, animated: true, scrollPosition: .top)
+        }
+        
+        UIView.animate(withDuration: 0.4) {
+            let indicateLine_frame = CGRect(x: (cell?.frame.origin.x)!, y: (cell?.frame.size.height)! - 2, width: (cell?.frame.size.width)!, height: 2)
+            self.indicateLine?.frame = indicateLine_frame
+        }
     }
 }
