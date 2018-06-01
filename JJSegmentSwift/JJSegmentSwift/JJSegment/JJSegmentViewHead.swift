@@ -28,19 +28,16 @@ class JJSegmentViewHead: UIView {
     var indicatorLineColor: UIColor?
     var indicatorLine: UIView?
     
-    
-    override init(frame: CGRect) {
+    //  指定构造器
+    init(frame: CGRect,
+         bgNomalColor: UIColor,
+         bgSelectColor: UIColor,
+         titleNomalColor:UIColor,
+         titleSelectColor:UIColor,
+         indicatorLineColor:UIColor,
+         fontSize:CGFloat,
+         titleDatas:Array<Any>) {
         super.init(frame: frame)
-    }
-    convenience init(frame: CGRect,
-                     bgNomalColor: UIColor,
-                     bgSelectColor: UIColor,
-                     titleNomalColor:UIColor,
-                     titleSelectColor:UIColor,
-                     indicatorLineColor:UIColor,
-                     fontSize:CGFloat,
-                     titleDatas:Array<Any>) {
-        self.init(frame: frame)
         
         self.bgNomalColor = bgNomalColor
         self.bgSelectColor = bgSelectColor
@@ -51,6 +48,24 @@ class JJSegmentViewHead: UIView {
         self.titleDatas = titleDatas
         self.selectIndex = 0
         self.createSubViews()
+        
+    }
+    
+    //  便利构造器
+    convenience init(frame: CGRect,
+                     bgColor: UIColor,
+                     titleColor:UIColor,
+                     indicatorLineColor:UIColor,
+                     fontSize:CGFloat,
+                     titleDatas:Array<Any>) {
+        self.init(frame: frame,
+                  bgNomalColor: UIColor.white,
+                  bgSelectColor: bgColor,
+                  titleNomalColor: UIColor.black,
+                  titleSelectColor: titleColor,
+                  indicatorLineColor: indicatorLineColor,
+                  fontSize: fontSize,
+                  titleDatas: titleDatas)
     }
     
     required init?(coder aDecoder: NSCoder) {

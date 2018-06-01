@@ -16,7 +16,7 @@ import SnapKit
     func segmentSubViewControllerWithIndex(_ segment:JJSegmentView, _ index:NSInteger) -> UIViewController
     //  点击标签栏标签时
     @objc optional func segmentItemSelectWithIndex(_ segment:JJSegmentView, _ index: NSInteger)
-
+    
 }
 
 class JJSegmentView: UIView {
@@ -31,25 +31,21 @@ class JJSegmentView: UIView {
     var headIndicatorLineColor: UIColor?
     var segmentHead:JJSegmentViewHead?
     var scrollView: UIScrollView?
-
     
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    convenience init(frame: CGRect,
-                  delegate: JJSegmentViewDelegate,
-                  titleDatas: Array<Any>,
-                  headHeight: CGFloat,
-                  fontSize: CGFloat,
-                  headBgNomalColor: UIColor,
-                  headBgSelectColor: UIColor,
-                  headTitleNomalColor: UIColor,
-                  headTitleSelectColor: UIColor,
-                  headIndicatorLineColor: UIColor)
+    //  指定构造器
+    init(frame: CGRect,
+         delegate: JJSegmentViewDelegate,
+         titleDatas: Array<Any>,
+         headHeight: CGFloat,
+         fontSize: CGFloat,
+         headBgNomalColor: UIColor,
+         headBgSelectColor: UIColor,
+         headTitleNomalColor: UIColor,
+         headTitleSelectColor: UIColor,
+         headIndicatorLineColor: UIColor)
     {
-        self.init(frame: frame)
+        super.init(frame: frame)
         self.delegate = delegate
         self.headHeight = headHeight
         self.fontSize = fontSize
@@ -61,6 +57,28 @@ class JJSegmentView: UIView {
         self.titleDatas = titleDatas as? Array<String>
         
         self.createSubViews()
+    }
+    
+    //  便利构造器
+    convenience init(frame: CGRect,
+                     delegate: JJSegmentViewDelegate,
+                     titleDatas: Array<Any>,
+                     headHeight: CGFloat,
+                     fontSize: CGFloat,
+                     headBgColor: UIColor,
+                     headTitleColor: UIColor,
+                     headIndicatorLineColor: UIColor)
+    {
+        self.init(frame: frame,
+                  delegate: delegate,
+                  titleDatas: titleDatas,
+                  headHeight: headHeight,
+                  fontSize: fontSize,
+                  headBgNomalColor: UIColor.white,
+                  headBgSelectColor: headBgColor,
+                  headTitleNomalColor: UIColor.black,
+                  headTitleSelectColor: headTitleColor,
+                  headIndicatorLineColor: headIndicatorLineColor)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -78,15 +96,12 @@ class JJSegmentView: UIView {
         
         //  头部标签视图
         let segmentHead_frame = CGRect(x: 0, y: 64, width: self.bounds.size.width, height: self.headHeight!)
-        segmentHead = JJSegmentViewHead(frame:segmentHead_frame,
-                        bgNomalColor: self.headBgNomalColor!,
-                        bgSelectColor: self.headBgSelectColor!,
-                        titleNomalColor: self.headTitleNomalColor!,
-                        titleSelectColor: self.headTitleSelectColor!,
-                        indicatorLineColor: self.headIndicatorLineColor!,
-                        fontSize: self.fontSize!,
-                        titleDatas: self.titleDatas!)
-        segmentHead?.backgroundColor = .red
+        segmentHead = JJSegmentViewHead(frame: segmentHead_frame,
+                                        bgColor: self.headBgSelectColor!,
+                                        titleColor: self.headTitleSelectColor!,
+                                        indicatorLineColor: self.headIndicatorLineColor!,
+                                        fontSize: self.fontSize!,
+                                        titleDatas: self.titleDatas!)
         segmentHead?.delegate = self
         self.addSubview(segmentHead!)
         
@@ -101,7 +116,7 @@ class JJSegmentView: UIView {
         self.scrollView = scrollView
         
         var lastView:UIView? = nil
-    
+        
         for i in 0..<(self.titleDatas?.count)! {
             let baseVc = self.delegate?.segmentSubViewControllerWithIndex(self, i)
             self.delegate?.segmentSuperViewController().addChildViewController(baseVc!)

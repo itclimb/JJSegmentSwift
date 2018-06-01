@@ -18,17 +18,16 @@ class ViewController: UIViewController {
         let titleDatas = ["推荐视频","热点","直播","阿里巴巴","今日头条","腾讯视频"]
         
         let frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
-        
+
         let segmentView = JJSegmentView(frame: frame,
                                         delegate: self,
-                                    titleDatas: titleDatas,
-                                    headHeight: 40,
-                                    fontSize: 17,
-                                    headBgNomalColor: UIColor.white,
-                                    headBgSelectColor: UIColor.white,
-                                    headTitleNomalColor: UIColor.black,
-                                    headTitleSelectColor: UIColor.blue,
-                                    headIndicatorLineColor:UIColor.blue)
+                                        titleDatas: titleDatas,
+                                        headHeight: 40,
+                                        fontSize: 17,
+                                        headBgColor: UIColor.white,
+                                        headTitleColor: UIColor.blue,
+                                        headIndicatorLineColor: UIColor.blue)
+        
         view.addSubview(segmentView)
         
     }
