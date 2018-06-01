@@ -25,9 +25,8 @@ class JJSegmentViewHead: UIView {
     var bgSelectColor: UIColor?
     var titleNomalColor: UIColor?
     var titleSelectColor: UIColor?
-    var lineNomalColor: UIColor?
-    var lineSelectColor: UIColor?
-    var indicateLine: UIView?
+    var indicatorLineColor: UIColor?
+    var indicatorLine: UIView?
     
     
     override init(frame: CGRect) {
@@ -38,8 +37,7 @@ class JJSegmentViewHead: UIView {
                      bgSelectColor: UIColor,
                      titleNomalColor:UIColor,
                      titleSelectColor:UIColor,
-                     lineNomalColor:UIColor,
-                     lineSelectColor:UIColor,
+                     indicatorLineColor:UIColor,
                      fontSize:CGFloat,
                      titleDatas:Array<Any>) {
         self.init(frame: frame)
@@ -48,8 +46,7 @@ class JJSegmentViewHead: UIView {
         self.bgSelectColor = bgSelectColor
         self.titleNomalColor = titleNomalColor
         self.titleSelectColor = titleSelectColor
-        self.lineNomalColor = lineNomalColor
-        self.lineSelectColor = lineSelectColor
+        self.indicatorLineColor = indicatorLineColor
         self.fontSize = fontSize
         self.titleDatas = titleDatas
         self.selectIndex = 0
@@ -76,14 +73,14 @@ class JJSegmentViewHead: UIView {
         self.collectionV?.register(JJSegmentViewHeadCell.self, forCellWithReuseIdentifier: "kCell")
     
         //  指示器
-        indicateLine = UIView()
-        indicateLine?.backgroundColor = .red
-        self.collectionV?.addSubview(indicateLine!)
+        indicatorLine = UIView()
+        indicatorLine?.backgroundColor = indicatorLineColor
+        self.collectionV?.addSubview(indicatorLine!)
         // 开启线程
         DispatchQueue.main.async {
             // 主线程中
             let size = self.delegate?.segmentViewHeadItemSize(self, 0)
-            self.indicateLine?.frame = CGRect(x: 0, y:(size?.height)! - 2, width:(size?.width)!, height: 2)
+            self.indicatorLine?.frame = CGRect(x: 0, y:(size?.height)! - 2, width:(size?.width)!, height: 2)
         }
     }
 }
@@ -124,7 +121,7 @@ extension JJSegmentViewHead: UICollectionViewDelegate, UICollectionViewDataSourc
         
         UIView.animate(withDuration: 0.4) {
             let indicateLine_frame = CGRect(x: (cell?.frame.origin.x)!, y: (cell?.frame.size.height)! - 2, width: (cell?.frame.size.width)!, height: 2)
-            self.indicateLine?.frame = indicateLine_frame
+            self.indicatorLine?.frame = indicateLine_frame
         }
         
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
@@ -145,11 +142,9 @@ extension JJSegmentViewHead: UICollectionViewDelegate, UICollectionViewDataSourc
         cell.titleLabel?.text = self.titleDatas?[indexPath.row] as? String
         cell.fontSize = self.fontSize
         if selectIndex == indexPath.item {
-            cell.line?.backgroundColor = lineSelectColor
             cell.titleLabel?.textColor = titleSelectColor
             cell.contentView.backgroundColor = bgSelectColor
         }else {
-            cell.line?.backgroundColor = lineNomalColor
             cell.titleLabel?.textColor = titleNomalColor
             cell.contentView.backgroundColor = bgNomalColor
         }
@@ -177,7 +172,7 @@ extension JJSegmentViewHead {
         
         UIView.animate(withDuration: 0.4) {
             let indicateLine_frame = CGRect(x: (cell?.frame.origin.x)!, y: (cell?.frame.size.height)! - 2, width: (cell?.frame.size.width)!, height: 2)
-            self.indicateLine?.frame = indicateLine_frame
+            self.indicatorLine?.frame = indicateLine_frame
         }
         
         self.collectionV?.scrollToItem(at: NSIndexPath(item: index, section: 0) as IndexPath, at: .centeredHorizontally, animated: true)

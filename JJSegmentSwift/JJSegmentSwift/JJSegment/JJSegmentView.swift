@@ -28,8 +28,7 @@ class JJSegmentView: UIView {
     var headBgSelectColor: UIColor?
     var headTitleNomalColor: UIColor?
     var headTitleSelectColor: UIColor?
-    var headLineNomalColor: UIColor?
-    var headLineSelectColor: UIColor?
+    var headIndicatorLineColor: UIColor?
     var segmentHead:JJSegmentViewHead?
     var scrollView: UIScrollView?
 
@@ -48,8 +47,7 @@ class JJSegmentView: UIView {
                   headBgSelectColor: UIColor,
                   headTitleNomalColor: UIColor,
                   headTitleSelectColor: UIColor,
-                  headLineNomalColor: UIColor,
-                  headLineSelectColor: UIColor)
+                  headIndicatorLineColor: UIColor)
     {
         self.init(frame: frame)
         self.delegate = delegate
@@ -59,8 +57,7 @@ class JJSegmentView: UIView {
         self.headBgSelectColor = headBgSelectColor
         self.headTitleNomalColor = headTitleNomalColor
         self.headTitleSelectColor = headTitleSelectColor
-        self.headLineNomalColor = headLineNomalColor
-        self.headLineSelectColor = headLineSelectColor
+        self.headIndicatorLineColor = headIndicatorLineColor
         self.titleDatas = titleDatas as? Array<String>
         
         self.createSubViews()
@@ -86,8 +83,7 @@ class JJSegmentView: UIView {
                         bgSelectColor: self.headBgSelectColor!,
                         titleNomalColor: self.headTitleNomalColor!,
                         titleSelectColor: self.headTitleSelectColor!,
-                        lineNomalColor: self.headLineNomalColor!,
-                        lineSelectColor: self.headLineSelectColor!,
+                        indicatorLineColor: self.headIndicatorLineColor!,
                         fontSize: self.fontSize!,
                         titleDatas: self.titleDatas!)
         segmentHead?.backgroundColor = .red

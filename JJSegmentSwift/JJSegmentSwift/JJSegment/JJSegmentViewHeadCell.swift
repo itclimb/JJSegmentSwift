@@ -11,8 +11,6 @@ import UIKit
 class JJSegmentViewHeadCell: UICollectionViewCell {
     //  标签标题
     var titleLabel: UILabel?
-    //  标签底部线条
-    var line: UIView?
     //  标签字体大小
     var fontSize: CGFloat?
     
@@ -22,9 +20,6 @@ class JJSegmentViewHeadCell: UICollectionViewCell {
         self.titleLabel = UILabel()
         self.titleLabel?.textAlignment = .center
         contentView.addSubview(titleLabel!)
-        
-        self.line = UIView()
-        contentView.addSubview(line!)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,11 +34,6 @@ class JJSegmentViewHeadCell: UICollectionViewCell {
             make.centerX.equalTo(contentView)
             make.top.bottom.equalTo(contentView)
         })
-        
-//        self.line?.snp.makeConstraints({ (make) in
-//            make.leading.trailing.bottom.equalTo(contentView)
-//            make.height.equalTo(2)
-//        })
     }
     
     
