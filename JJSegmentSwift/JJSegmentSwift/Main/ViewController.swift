@@ -55,6 +55,11 @@ extension UIViewController: JJSegmentViewDelegate {
         print(index)
     }
     
+    //默认首次显示第几个item
+    func segmentItemDefaultSelect(_ segment: JJSegmentView) -> NSInteger {
+        return 1
+    }
+    
 
 }
 

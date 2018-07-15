@@ -16,6 +16,8 @@ import SnapKit
     func segmentSubViewControllerWithIndex(_ segment:JJSegmentView, _ index:NSInteger) -> UIViewController
     //  点击标签栏标签时
     @objc optional func segmentItemSelectWithIndex(_ segment:JJSegmentView, _ index: NSInteger)
+    //  设置默认显示页
+    func segmentItemDefaultSelect(_ segment:JJSegmentView) -> NSInteger
     
 }
 
@@ -31,7 +33,7 @@ class JJSegmentView: UIView {
     var headIndicatorLineColor: UIColor?
     var segmentHead:JJSegmentViewHead?
     var scrollView: UIScrollView?
-    var selectIndex: NSInteger?
+    var selectIndex: NSInteger = 0
     
     
     //  指定构造器
@@ -56,7 +58,6 @@ class JJSegmentView: UIView {
         self.headTitleSelectColor = headTitleSelectColor
         self.headIndicatorLineColor = headIndicatorLineColor
         self.titleDatas = titleDatas as? Array<String>
-        self.selectIndex = 1
         
         self.createSubViews()
     }
@@ -103,6 +104,8 @@ class JJSegmentView: UIView {
     }
     
     func createSubViews() {
+        self.selectIndex = (self.delegate?.segmentItemDefaultSelect(self))!
+        
         if (self.titleDatas?.count)! <= 0 { return }
         for vc in (self.delegate?.segmentSuperViewController().childViewControllers)! {
             vc.removeFromParentViewController()
@@ -118,7 +121,8 @@ class JJSegmentView: UIView {
                                         titleColor: self.headTitleSelectColor!,
                                         indicatorLineColor: self.headIndicatorLineColor!,
                                         fontSize: self.fontSize!,
-                                        titleDatas: self.titleDatas!)
+                                        titleDatas: self.titleDatas!,
+                                        selectIndex:self.selectIndex)
         segmentHead?.delegate = self
         self.addSubview(segmentHead!)
         
@@ -155,8 +159,8 @@ class JJSegmentView: UIView {
         }
         
         //MARK: 默认显示第几页
-        self.scrollView?.setContentOffset(CGPoint(x: self.bounds.size.width * CGFloat(self.selectIndex!), y: 0), animated: false)
-        self.delegate?.segmentItemSelectWithIndex!(self, selectIndex!)
+        self.scrollView?.setContentOffset(CGPoint(x: self.bounds.size.width * CGFloat(self.selectIndex), y: 0), animated: false)
+        self.delegate?.segmentItemSelectWithIndex!(self, selectIndex)
     }
 }
 

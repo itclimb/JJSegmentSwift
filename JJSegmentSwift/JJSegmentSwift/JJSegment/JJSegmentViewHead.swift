@@ -36,7 +36,8 @@ class JJSegmentViewHead: UIView {
          titleSelectColor:UIColor,
          indicatorLineColor:UIColor,
          fontSize:CGFloat,
-         titleDatas:Array<Any>) {
+         titleDatas:Array<Any>,
+         selectIndex:NSInteger) {
         super.init(frame: frame)
         
         self.bgNomalColor = bgNomalColor
@@ -46,7 +47,7 @@ class JJSegmentViewHead: UIView {
         self.indicatorLineColor = indicatorLineColor
         self.fontSize = fontSize
         self.titleDatas = titleDatas
-        self.selectIndex = 1
+        self.selectIndex = selectIndex
         self.createSubViews()
         
     }
@@ -57,7 +58,8 @@ class JJSegmentViewHead: UIView {
                      titleColor:UIColor,
                      indicatorLineColor:UIColor,
                      fontSize:CGFloat,
-                     titleDatas:Array<Any>) {
+                     titleDatas:Array<Any>,
+                     selectIndex:NSInteger) {
         self.init(frame: frame,
                   bgNomalColor: UIColor.white,
                   bgSelectColor: bgColor,
@@ -65,7 +67,8 @@ class JJSegmentViewHead: UIView {
                   titleSelectColor: titleColor,
                   indicatorLineColor: indicatorLineColor,
                   fontSize: fontSize,
-                  titleDatas: titleDatas)
+                  titleDatas: titleDatas,
+                  selectIndex:selectIndex)
     }
     
     required init?(coder aDecoder: NSCoder) {
