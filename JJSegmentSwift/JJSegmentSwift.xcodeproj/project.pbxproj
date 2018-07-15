@@ -374,6 +374,7 @@
 			baseConfigurationReference = 1AD73A3DCF9BC6F21119E27C /* Pods-JJSegmentSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 93A3WCDBZD;
 				INFOPLIST_FILE = "$(SRCROOT)/JJSegmentSwift/Support Files/Info.plist";
@@ -384,6 +385,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.readtv.itclimb.JJSegmentSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -394,6 +396,7 @@
 			baseConfigurationReference = 463127CB8CD029D928AB548D /* Pods-JJSegmentSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 93A3WCDBZD;
 				INFOPLIST_FILE = "$(SRCROOT)/JJSegmentSwift/Support Files/Info.plist";
@@ -404,6 +407,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.readtv.itclimb.JJSegmentSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

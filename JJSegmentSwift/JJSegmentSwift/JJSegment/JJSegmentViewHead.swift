@@ -46,7 +46,7 @@ class JJSegmentViewHead: UIView {
         self.indicatorLineColor = indicatorLineColor
         self.fontSize = fontSize
         self.titleDatas = titleDatas
-        self.selectIndex = 0
+        self.selectIndex = 1
         self.createSubViews()
         
     }
@@ -91,11 +91,13 @@ class JJSegmentViewHead: UIView {
         indicatorLine = UIView()
         indicatorLine?.backgroundColor = indicatorLineColor
         self.collectionV?.addSubview(indicatorLine!)
+    
         // 开启线程
         DispatchQueue.main.async {
             // 主线程中
-            let size = self.delegate?.segmentViewHeadItemSize(self, 0)
-            self.indicatorLine?.frame = CGRect(x: 0, y:(size?.height)! - 2, width:(size?.width)!, height: 2)
+            let size = self.delegate?.segmentViewHeadItemSize(self, self.selectIndex!)
+            let cell = self.collectionV?.cellForItem(at: NSIndexPath(row: self.selectIndex!, section: 0) as IndexPath)
+            self.indicatorLine?.frame = CGRect(x: (cell?.frame.origin.x)! + 10, y:(size?.height)! - 2, width:(size?.width)! - 20, height: 2)
         }
     }
 }
@@ -135,7 +137,7 @@ extension JJSegmentViewHead: UICollectionViewDelegate, UICollectionViewDataSourc
         }
         
         UIView.animate(withDuration: 0.4) {
-            let indicateLine_frame = CGRect(x: (cell?.frame.origin.x)!, y: (cell?.frame.size.height)! - 2, width: (cell?.frame.size.width)!, height: 2)
+            let indicateLine_frame = CGRect(x: (cell?.frame.origin.x)!  + 10, y: (cell?.frame.size.height)! - 2, width: (cell?.frame.size.width)! - 20, height: 2)
             self.indicatorLine?.frame = indicateLine_frame
         }
         

@@ -31,6 +31,7 @@ class JJSegmentView: UIView {
     var headIndicatorLineColor: UIColor?
     var segmentHead:JJSegmentViewHead?
     var scrollView: UIScrollView?
+    var selectIndex: NSInteger?
     
     
     //  指定构造器
@@ -55,6 +56,7 @@ class JJSegmentView: UIView {
         self.headTitleSelectColor = headTitleSelectColor
         self.headIndicatorLineColor = headIndicatorLineColor
         self.titleDatas = titleDatas as? Array<String>
+        self.selectIndex = 1
         
         self.createSubViews()
     }
@@ -103,10 +105,10 @@ class JJSegmentView: UIView {
     func createSubViews() {
         if (self.titleDatas?.count)! <= 0 { return }
         for vc in (self.delegate?.segmentSuperViewController().childViewControllers)! {
-            vc .removeFromParentViewController()
+            vc.removeFromParentViewController()
         }
         for subView in self.subviews {
-            subView .removeFromSuperview()
+            subView.removeFromSuperview()
         }
         
         //  头部标签视图
@@ -151,6 +153,10 @@ class JJSegmentView: UIView {
             })
             lastView = baseVc?.view
         }
+        
+        //MARK: 默认显示第几页
+        self.scrollView?.setContentOffset(CGPoint(x: self.bounds.size.width * CGFloat(self.selectIndex!), y: 0), animated: false)
+        self.delegate?.segmentItemSelectWithIndex!(self, selectIndex!)
     }
 }
 
