@@ -16,11 +16,13 @@ class ViewController: UIViewController {
         self.title = "Segment"
         
         let titleDatas = ["推荐视频","热点","直播","阿里巴巴","今日头条","腾讯视频"]
+        let titleDatas1 = ["推荐视频","热点","直播","阿里巴巴"]
+        
         let frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
 
         let segmentView = JJSegmentView(frame: frame,
                                         delegate: self,
-                                        titleDatas: titleDatas,
+                                        titleDatas: titleDatas1,
                                         headTitleColor: UIColor.blue)
         view.addSubview(segmentView)
         
