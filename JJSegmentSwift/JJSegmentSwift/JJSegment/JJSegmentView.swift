@@ -107,8 +107,8 @@ class JJSegmentView: UIView {
         self.selectIndex = (self.delegate?.segmentItemDefaultSelect(self))!
         
         if (self.titleDatas?.count)! <= 0 { return }
-        for vc in (self.delegate?.segmentSuperViewController().childViewControllers)! {
-            vc.removeFromParentViewController()
+        for subController in (self.delegate?.segmentSuperViewController().childViewControllers)! {
+            subController.removeFromParentViewController()
         }
         for subView in self.subviews {
             subView.removeFromSuperview()
