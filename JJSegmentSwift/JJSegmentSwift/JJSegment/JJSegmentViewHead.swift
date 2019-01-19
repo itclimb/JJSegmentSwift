@@ -180,22 +180,22 @@ extension JJSegmentViewHead {
             return
         }
         
-        let indexP = IndexPath(item: index, section: 0)
-        var cell = collectionV?.cellForItem(at: indexP)
-        if cell == nil {
-            collectionV?.layoutIfNeeded()
-            cell = collectionV?.cellForItem(at: indexP)
-            cell!.isSelected = true
-            collectionV?.selectItem(at: indexP, animated: true, scrollPosition: .top)
+        var sumWeight:CGFloat = 0
+        
+        for i in 0...index {
+            sumWeight += (self.delegate?.segmentViewHeadItemSize(self, i).width)!
         }
+        
+        let currentWeight = self.delegate?.segmentViewHeadItemSize(self, index).width
+        let currentHeight = self.delegate?.segmentViewHeadItemSize(self, index).height
         
         
         UIView.animate(withDuration: 0.4) {
-            let indicateLine_frame = CGRect(x: (cell?.frame.origin.x)!, y: (cell?.frame.size.height)! - 2, width: (cell?.frame.size.width)!, height: 2)
+            let indicateLine_frame = CGRect(x: sumWeight - currentWeight!, y: currentHeight! - 2, width: currentWeight!, height: 2)
             self.indicatorLine?.frame = indicateLine_frame
         }
         
-        self.collectionV?.scrollToItem(at: NSIndexPath(item: index, section: 0) as IndexPath, at: .centeredHorizontally, animated: true)
+        self.collectionV?.scrollToItem(at: NSIndexPath(item: index, section: 0) as IndexPath, at: .centeredHorizontally, animated: false)
         self.selectIndex = index
         self.collectionV?.reloadData()
         
