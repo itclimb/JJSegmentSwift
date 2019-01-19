@@ -15,7 +15,13 @@ class ViewController: UIViewController {
         view.backgroundColor = UIColor.white
         self.title = "Segment"
         
+<<<<<<< HEAD
         let titleDatas = ["0000","1111","2222","3333","4444","5555","6666","7777","8888","9999"]
+=======
+        let titleDatas = ["推荐视频","热点","直播","阿里巴巴","今日头条","腾讯视频"]
+        let titleDatas1 = ["推荐视频","热点","直播"]
+        
+>>>>>>> origin/master
         let frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
 
         let segmentView = JJSegmentView(frame: frame,

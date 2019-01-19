@@ -84,6 +84,7 @@ class JJSegmentViewHead: UIView {
         collectionV?.dataSource = self
         collectionV?.showsHorizontalScrollIndicator = false
         collectionV?.bounces = false
+        collectionV?.backgroundColor = UIColor.white
         self.addSubview(self.collectionV!)
         self.collectionV?.snp.makeConstraints({ (make) in
             make.edges.equalToSuperview()
